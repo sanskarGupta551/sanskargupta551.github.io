@@ -2,90 +2,80 @@
 layout: default
 ---
 <!--
-_layouts/home.html
-- Uses grouped, logo-bearing skills/tech (from resume)
-- Featured Projects: improved 2x2 grid with image, name (linked), short description, tag-only skills
+Modern homepage: beautiful skills w/ logos, attractive projects grid, clear layout.
 -->
 
-<!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <h1>{{ site.author.name }}</h1>
-    <h2>Production ML Engineer | Full-Stack ML · MLOps · Big Data</h2>
+    <h2>Production ML Engineer | ML • MLOps • Full-stack • Big Data</h2>
     <p>
-      Designing and deploying robust machine learning solutions, automating end-to-end pipelines, and scaling data-driven platforms.
+      Robust ML solutions, reliable automation, and scalable platforms built for production.
     </p>
     <div class="hero-links">
-      <a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:{{ site.author.email }}"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github"></i></a>
+      <a href="{{ site.author.linkedin }}"><i class="fab fa-linkedin"></i></a>
     </div>
   </div>
 </section>
 
-<!-- Core Skills & Technologies (from resume) -->
+<!-- Core Skills/Technologies (update SVG logo paths to your files) -->
 <section class="skills-section">
   <div class="container">
     <h2>Core Skills & Technologies</h2>
-    <!-- Programming Languages -->
     <div class="skill-group">
-      <div class="skill-group-label">Programming Languages</div>
+      <div class="skill-group-label">Programming & Data:</div>
       <div class="skills-list">
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/python.svg" alt="Python logo">Python</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/sql.svg" alt="SQL logo">SQL</span>
       </div>
     </div>
-    <!-- Cloud/Data Platforms -->
     <div class="skill-group">
-      <div class="skill-group-label">Cloud & Data Platforms</div>
+      <div class="skill-group-label">ML, AI, and Visualization:</div>
       <div class="skills-list">
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/gcp.svg" alt="GCP logo">Google Cloud Platform</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/bigquery.svg" alt="BigQuery logo">BigQuery</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/vertexai.svg" alt="VertexAI logo">Vertex AI</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/docker.svg" alt="Docker logo">Docker</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/github.svg" alt="GitHub logo">GitHub</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/cicd.svg" alt="CI/CD logo">CI/CD</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/ws2l.svg" alt="WSL2 logo">WSL2</span>
-      </div>
-    </div>
-    <!-- ML/AI Frameworks -->
-    <div class="skill-group">
-      <div class="skill-group-label">ML/AI Frameworks & Tools</div>
-      <div class="skills-list">
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/mlflow.svg" alt="MLflow logo">MLflow</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/tensorflow.svg" alt="TensorFlow logo">TensorFlow</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/keras.svg" alt="Keras logo">Keras</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/pandas.svg" alt="pandas logo">pandas</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/pandas.svg" alt="Pandas logo">pandas</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/numpy.svg" alt="NumPy logo">NumPy</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/matplotlib.svg" alt="matplotlib logo">matplotlib</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/matplotlib.svg" alt="Matplotlib logo">matplotlib</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/seaborn.svg" alt="seaborn logo">seaborn</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/jupyter.svg" alt="Jupyter logo">Jupyter</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/airflow.svg" alt="Airflow logo">Airflow</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Cloud, MLOps, Ops:</div>
+      <div class="skills-list">
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/gcp.svg" alt="GCP logo">GCP</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/vertexai.svg" alt="Vertex AI logo">Vertex AI</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/bigquery.svg" alt="BigQuery logo">BigQuery</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/docker.svg" alt="Docker logo">Docker</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/mlflow.svg" alt="MLflow logo">MLflow</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/cicd.svg" alt="CI/CD logo">CI/CD</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/github.svg" alt="GitHub logo">GitHub</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/ws2l.svg" alt="WSL2 logo">WSL2</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/mlops.svg" alt="MLOps logo">MLOps</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/deeplearning.svg" alt="Deep Learning logo">Deep Learning</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/automl.svg" alt="AutoML logo">AutoML</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2x2 Grid of Featured Projects (update with your actual projects) -->
+<!-- Featured Projects: 2x2 grid -->
 <section>
   <div class="container">
-    <h2>Featured Projects</h2>
+    <h2 class="projects-title">Featured Projects</h2>
     <div class="featured-projects-grid">
       {% assign featured = site.projects | slice: 0, 4 %}
       {% for project in featured %}
         <div class="project-card">
           {% if project.thumbnail %}
-          <img class="project-banner" src="{{ project.thumbnail }}" alt="{{ project.title }} image">
+            <img class="project-banner" src="{{ project.thumbnail }}" alt="{{ project.title }} banner">
           {% endif %}
           <div class="project-title-row">
             <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
           </div>
-          <div class="project-short">
-            {{ project.tldr }}
-          </div>
+          <div class="project-short">{{ project.tldr }}</div>
           <div class="project-tag-list">
             {% if project.tech_stack %}
               {% for tech in project.tech_stack %}
@@ -99,12 +89,10 @@ _layouts/home.html
   </div>
 </section>
 
-<!-- About Me Preview -->
+<!-- About Me preview -->
 <section>
   <div class="container">
     <h2>About Me</h2>
-    <p>
-      Experienced Production ML Engineer passionate about building scalable and resilient machine learning and data platforms. <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
-    </p>
+    <p>Experienced Production ML Engineer building scalable, resilient platforms. <a href="{{ site.baseurl }}/about/">Read More &rarr;</a></p>
   </div>
 </section>

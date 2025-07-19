@@ -1,13 +1,11 @@
 <!--
-_includes/header.html
-Header/navbar with: profile picture, site title, navigation, and settings button (far right)
+Header with profile picture, site title, nav, settings button (right)
 -->
 
 <header>
   <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-profile">
-      <!-- Insert your profile photo (example path: assets/images/profile.jpg) -->
-      <img src="{{ site.baseurl }}/assets/images/profile.jpg" class="profile-img" alt="Sanskar Gupta profile photo">
+    <div class="header-left">
+      <img src="{{ site.baseurl }}/assets/images/profile.jpg" class="profile-img" alt="{{ site.author.name }} profile photo">
       <span class="navbar-brand">{{ site.title }}</span>
     </div>
     <ul class="navbar-links">
@@ -15,12 +13,9 @@ Header/navbar with: profile picture, site title, navigation, and settings button
       <li><a href="{{ site.baseurl }}/projects/" {% if page.url contains '/projects/' %}class="active"{% endif %}>Projects</a></li>
       <li><a href="{{ site.baseurl }}/about/" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
     </ul>
-    <!-- Settings (gear) icon triggers .settings-modal -->
     <button class="settings-btn" id="open-settings" title="Settings" aria-label="Open settings">
       <i class="fas fa-cog"></i>
     </button>
   </nav>
 </header>
-
-<!-- Settings Modal: auto-included just after header in layouts -->
 {% include settings-modal.html %}

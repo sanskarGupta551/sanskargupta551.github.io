@@ -1,28 +1,39 @@
 {%- comment -%}
-_settings-modal.html
-Custom settings modal/dropdown.
-- Theme switching with mini previews.
-- Accessible, keyboard navigable.
-- Appears on .settings-btn click.
+Settings modal with accurate theme previews.
 {%- endcomment -%}
 
-<div id="settings-modal-bg" class="settings-modal-bg" style="display:none;"></div>
-<aside id="settings-modal" class="settings-modal" tabindex="-1" aria-modal="true" aria-labelledby="settings-title" style="display:none;">
+<div id="settings-modal-bg" class="settings-modal-bg"></div>
+<aside id="settings-modal" class="settings-modal" tabindex="-1" aria-modal="true" aria-labelledby="settings-title">
   <h4 id="settings-title">Settings</h4>
-  <div>
-    <label style="display:block; margin-bottom:0.8em; font-weight:500;">
-      Theme:
-    </label>
-    <div class="theme-choice-list" role="list">
-      {% for i in (1..10) %}
-        <button type="button"
-                class="theme-choice"
-                data-theme="{{ i }}"
-                aria-label="Theme {{ i }}">
-          <!-- theme preview (replace style or SVG for real swatch per theme) -->
-          <span class="theme-choice-inner theme-pre-{{ i }}"></span>
-        </button>
-      {% endfor %}
-    </div>
+  <label style="display:block; margin-bottom:0.85em; font-weight:500;">Theme:</label>
+  <div class="theme-choice-list" role="list">
+    <!-- Each theme swatch is a triple-palette strip -->
+    {% assign theme_palette = 
+      "1:#181b22,#5e99ff,#23263a
+       2:#14171a,#ff7866,#22252d
+       3:#191a15,#45e392,#2b2f20
+       4:#232032,#be71ff,#271b36
+       5:#222e3a,#ffbe42,#294257
+       6:#182841,#00e2ff,#21406a
+       7:#181b23,#5a7fff,#22254d
+       8:#142020,#ffd074,#19383a
+       9:#1c191d,#ef79d3,#32253c
+       10:#1f2424,#6effb8,#23373e" 
+      | split: " " %}
+    {% for tp in theme_palette %}
+      {% assign t = tp | split: ":" %}
+      {% assign idx = t[0] %}
+      {% assign colors = t[1] | split: "," %}
+      <button type="button" 
+              class="theme-choice" 
+              data-theme="{{ idx }}" 
+              aria-label="Theme {{ idx }}">
+        <span class="theme-choice-inner" style="display:flex;">
+          <span class="theme-palette" style="background:{{ colors[0] }};"></span>
+          <span class="theme-palette" style="background:{{ colors[1] }};"></span>
+          <span class="theme-palette" style="background:{{ colors[2] }};"></span>
+        </span>
+      </button>
+    {% endfor %}
   </div>
 </aside>
