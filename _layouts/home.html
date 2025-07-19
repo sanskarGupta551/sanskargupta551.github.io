@@ -1,86 +1,82 @@
-{%- comment -%}
+---
+layout: default
+---
+<!--
 _layouts/home.html
 Custom layout for the home page of the portfolio site.
 - Highlights professional summary, skills, portfolio highlights, and links.
-- Draws from modular includes for easy update and reusability.
-{%- endcomment -%}
-
-{% extends "default" %}
-
-{% block content %}
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>{{ site.author.name }}</h1>
-      <h2>Production ML Engineer | Full-Stack ML · MLOps · Big Data</h2>
-      <p>
-        Designing and deploying robust machine learning solutions, automating end-to-end pipelines, and scaling data-driven platforms for organizational impact.
-      </p>
-      <!-- Social/Contact Links -->
-      <div class="hero-links">
-        <a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
+-->
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>{{ site.author.name }}</h1>
+    <h2>Production ML Engineer | Full-Stack ML · MLOps · Big Data</h2>
+    <p>
+      Designing and deploying robust machine learning solutions, automating end-to-end pipelines, and scaling data-driven platforms for organizational impact.
+    </p>
+    <!-- Social/Contact Links -->
+    <div class="hero-links">
+      <a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="{{ site.author.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills Matrix -->
-  <section>
-    <div class="container">
-      <h2>Core Skills & Technologies</h2>
-      <div class="skills-badges">
-        <span>Kubernetes</span>
-        <span>Docker</span>
-        <span>GCP</span>
-        <span>CI/CD</span>
-        <span>MLflow</span>
-        <span>Airflow</span>
-        <span>Spark</span>
-        <span>FastAPI</span>
-        <span>DataOps</span>
-        <span>Cloud Functions</span>
-        <span>REST APIs</span>
-        <span>SQL</span>
-        <!-- Add or remove as needed -->
-      </div>
+<!-- Skills Matrix -->
+<section>
+  <div class="container">
+    <h2>Core Skills & Technologies</h2>
+    <div class="skills-badges">
+      <span>Kubernetes</span>
+      <span>Docker</span>
+      <span>GCP</span>
+      <span>CI/CD</span>
+      <span>MLflow</span>
+      <span>Airflow</span>
+      <span>Spark</span>
+      <span>FastAPI</span>
+      <span>DataOps</span>
+      <span>Cloud Functions</span>
+      <span>REST APIs</span>
+      <span>SQL</span>
+      <!-- Add or remove as needed -->
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Featured Projects -->
-  <section>
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        {% assign featured = site.projects | slice: 0, 3 %}
-        {% for project in featured %}
-        <div class="project-card">
-          {% if project.thumbnail %}
-            <img src="{{ project.thumbnail }}" alt="{{ project.title }} image" class="project-thumb"/>
-          {% endif %}
-          <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
-          <p>{{ project.tldr }}</p>
-          <div class="project-tags">
-            {% for tag in project.tags %}
-              <span class="skills-badges">{{ tag }}</span>
-            {% endfor %}
-          </div>
+<!-- Featured Projects -->
+<section>
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      {% assign featured = site.projects | slice: 0, 3 %}
+      {% for project in featured %}
+      <div class="project-card">
+        {% if project.thumbnail %}
+          <img src="{{ project.thumbnail }}" alt="{{ project.title }} image" class="project-thumb"/>
+        {% endif %}
+        <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+        <p>{{ project.tldr }}</p>
+        <div class="project-tags">
+          {% for tag in project.tags %}
+            <span class="skills-badges">{{ tag }}</span>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
-      <a href="{{ site.baseurl }}/projects/" class="cta-link">View All Projects</a>
+      {% endfor %}
     </div>
-  </section>
+    <a href="{{ site.baseurl }}/projects/" class="cta-link">View All Projects</a>
+  </div>
+</section>
 
-  <!-- About Me Preview -->
-  <section>
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        Experienced Production ML Engineer passionate about building scalable and resilient machine learning infrastructures and data products. Bridging DevOps, Data Engineering, and ML for real-world business value.
-        <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
-      </p>
-    </div>
-  </section>
-
-{% endblock %}
+<!-- About Me Preview -->
+<section>
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      Experienced Production ML Engineer passionate about building scalable and resilient machine learning infrastructures and data products. Bridging DevOps, Data Engineering, and ML for real-world business value.
+      <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
+    </p>
+  </div>
+</section>
