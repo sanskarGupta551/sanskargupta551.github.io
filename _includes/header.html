@@ -1,33 +1,33 @@
 <!--
 _includes/header.html
-Global header and navigation for the portfolio site.
-- Uses site navigation from _config.yml for easy updates.
-- Responsive and accessible.
+Global header with modern navbar, accessible theme-switcher UI, and correct navigation.
 -->
 
 <header>
   <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
       <!-- Logo/Brand -->
       <a class="navbar-brand" href="{{ site.baseurl }}/">
         <span class="site-title">{{ site.title }}</span>
       </a>
-      <!-- Responsive Toggle (optional for further JS enhancement) -->
-      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="navbar-toggle-icon"></span>
-      </button>
+      
       <!-- Navigation Links -->
-      <div class="navbar-menu" id="navMenu">
-        <ul class="navbar-links">
-          {% for item in site.nav %}
-          <li>
-            <a href="{{ site.baseurl }}{{ item.url }}" 
-               {% if page.url == item.url %}class="active"{% endif %}>
-              {{ item.name }}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
+      <ul class="navbar-links" style="margin:0;">
+        <li>
+          <a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+        </li>
+        <li>
+          <!-- Projects - points to /projects/ index (see note below) -->
+          <a href="{{ site.baseurl }}/projects/" {% if page.url contains '/projects/' %}class="active"{% endif %}>Projects</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/about/" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
+        </li>
+      </ul>
+      
+      <!-- Theme Switcher (10 palettes shown as accessible dots) -->
+      <div id="theme-switcher" class="theme-switcher" aria-label="Theme color selector" tabindex="0">
+        <!-- Theme dots inserted by site.js -->
       </div>
     </div>
   </nav>
