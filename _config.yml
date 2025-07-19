@@ -1,0 +1,64 @@
+# _config.yml
+# Jekyll site configuration for sanskargupta551.github.io portfolio
+#
+# This file defines site settings, collections, navigation, and key metadata.
+# - Adjust metadata fields to match your profile and update as necessary.
+# - Navigation and collection data power menus and project listings across the site.
+
+title: "Sanskar Gupta | Production ML Engineer"
+description: "Portfolio of Sanskar Gupta – Production ML Engineer specializing in GCP-native MLOps, Full-stack ML, DevOps, and Big Data."
+url: "https://sanskargupta551.github.io"
+baseurl: "" # leave this blank for user.github.io sites
+
+author:
+  name: "Sanskar Gupta"
+  email: "your_email@example.com"
+  github: "sanskargupta551"
+  linkedin: "https://www.linkedin.com/in/sanskargupta551"
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+# Navigation links for header menu
+nav:
+  - name: Home
+    url: /
+  - name: Projects
+    url: /projects/
+  - name: About
+    url: /about/
+
+# Default markdown processor
+markdown: kramdown
+
+# Directory for static assets
+defaults:
+  -
+    scope:
+      path: "assets/images"
+    values:
+      image: true
+
+# Exclusions for build
+exclude:
+  - node_modules
+  - vendor
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Build plugins (add as needed)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Social sharing & SEO
+social:
+  name: "Sanskar Gupta"
+  links:
+    - "https://github.com/sanskargupta551"
+    - "https://www.linkedin.com/in/sanskargupta551"
+
+# Optional: Google Analytics, favicon, etc.

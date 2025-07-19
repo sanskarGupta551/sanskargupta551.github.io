@@ -1,0 +1,34 @@
+<!--
+_includes/header.html
+Global header and navigation for the portfolio site.
+- Uses site navigation from _config.yml for easy updates.
+- Responsive and accessible.
+-->
+
+<header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <!-- Logo/Brand -->
+      <a class="navbar-brand" href="{{ site.baseurl }}/">
+        <span class="site-title">{{ site.title }}</span>
+      </a>
+      <!-- Responsive Toggle (optional for further JS enhancement) -->
+      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="navbar-toggle-icon"></span>
+      </button>
+      <!-- Navigation Links -->
+      <div class="navbar-menu" id="navMenu">
+        <ul class="navbar-links">
+          {% for item in site.nav %}
+          <li>
+            <a href="{{ site.baseurl }}{{ item.url }}" 
+               {% if page.url == item.url %}class="active"{% endif %}>
+              {{ item.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

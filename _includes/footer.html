@@ -1,0 +1,26 @@
+<!--
+_includes/footer.html
+Global footer for the portfolio site.
+- Consistent branding and social/contact links.
+- Copyright information.
+-->
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <span>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}. All rights reserved.</span>
+      <span class="footer-links">
+        <!-- Social icons (replace '#' with your actual links if needed) -->
+        <a href="mailto:{{ site.author.email }}" aria-label="Email" target="_blank" rel="noopener">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="{{ site.author.github | prepend: "https://github.com/" }}" aria-label="GitHub" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="{{ site.author.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>

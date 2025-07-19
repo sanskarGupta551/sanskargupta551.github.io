@@ -1,0 +1,34 @@
+{%- comment -%}
+_layouts/default.html
+Base HTML layout for all pages in the portfolio site.
+- Wraps every page with consistent boilerplate (meta, CSS, header, footer).
+- Loads required site assets and partials.
+{%- endcomment -%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>{{ page.title | default: site.title }}</title>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+  <!-- FontAwesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Optional: SEO tags (if using jekyll-seo-tag) -->
+  {% seo %}
+</head>
+<body>
+  {% include header.html %}
+
+  <main class="container" id="main-content">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <!-- Optional: Site JS -->
+  <script src="{{ site.baseurl }}/assets/js/site.js"></script>
+</body>
+</html>

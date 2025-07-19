@@ -1,0 +1,117 @@
+{%- comment -%}
+_layouts/project.html
+Layout for displaying individual portfolio projects.
+- Designed for projects in the _projects collection.
+- Presents project details, images, tags, context, and links using front-matter variables and content.
+{%- endcomment -%}
+
+---
+# Jekyll requires front matter to process layouts, even if empty:
+---
+
+{% extends "default" %}
+
+{% block content %}
+  <article class="project-detail">
+    <!-- Project Title -->
+    <h1>{{ page.title }}</h1>
+
+    <!-- Project Sub-details -->
+    <div class="project-meta">
+      {% if page.date %}
+        <span class="project-date">{{ page.date | date: "%B %Y" }}</span>
+      {% endif %}
+      {% if page.tags %}
+        <span class="project-tags">
+          {% for tag in page.tags %}
+            <span class="skills-badges">{{ tag }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+    <!-- Thumbnail or Cover Image -->
+    {% if page.thumbnail %}
+      <img src="{{ page.thumbnail }}" alt="{{ page.title }} image" class="project-detail-thumb"/>
+    {% endif %}
+
+    <!-- TL;DR Summary -->
+    {% if page.tldr %}
+      <blockquote class="project-tldr">{{ page.tldr }}</blockquote>
+    {% endif %}
+
+    <!-- Problem Statement & Context -->
+    {% if page.problem %}
+      <section>
+        <h2>Problem Statement</h2>
+        <p>{{ page.problem }}</p>
+      </section>
+    {% endif %}
+
+    <!-- Technical Details -->
+    {% if page.tech_stack %}
+      <section>
+        <h2>Technical Stack & Architecture</h2>
+        <ul>
+          {% for tech in page.tech_stack %}
+            <li>{{ tech }}</li>
+          {% endfor %}
+        </ul>
+        {% if page.architecture_image %}
+          <img src="{{ page.architecture_image }}" alt="Project Architecture Diagram" class="project-arch-img"/>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    <!-- My Roles & Contributions -->
+    {% if page.contributions %}
+      <section>
+        <h2>My Contributions</h2>
+        <ul>
+          {% for item in page.contributions %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+
+    <!-- Screenshots/Demos -->
+    {% if page.screenshots %}
+      <section>
+        <h2>Screenshots & Demos</h2>
+        <div class="project-screenshots">
+          {% for shot in page.screenshots %}
+            <img src="{{ shot }}" alt="Project Screenshot" class="project-screenshot" />
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <!-- Repository and Demo Links -->
+    <section>
+      <h2>Links</h2>
+      <ul>
+        {% if page.repo %}
+          <li>
+            <a href="{{ page.repo }}" target="_blank" rel="noopener">GitHub Repository</a>
+          </li>
+        {% endif %}
+        {% if page.demo %}
+          <li>
+            <a href="{{ page.demo }}" target="_blank" rel="noopener">Live Demo</a>
+          </li>
+        {% endif %}
+        {% if page.more_info %}
+          <li>
+            <a href="{{ page.more_info }}" target="_blank" rel="noopener">Read More</a>
+          </li>
+        {% endif %}
+      </ul>
+    </section>
+
+    <!-- Main Project Content -->
+    <section class="project-body">
+      {{ content }}
+    </section>
+  </article>
+{% endblock %}
