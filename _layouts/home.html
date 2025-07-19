@@ -3,7 +3,8 @@ layout: default
 ---
 <!--
 _layouts/home.html
-Modern, beautiful, simple homepage: hero, themed core skills with logos, project banners, and about preview.
+- Uses grouped, logo-bearing skills/tech (from resume)
+- Featured Projects: improved 2x2 grid with image, name (linked), short description, tag-only skills
 -->
 
 <!-- Hero Section -->
@@ -12,9 +13,8 @@ Modern, beautiful, simple homepage: hero, themed core skills with logos, project
     <h1>{{ site.author.name }}</h1>
     <h2>Production ML Engineer | Full-Stack ML · MLOps · Big Data</h2>
     <p>
-      Designing and deploying robust machine learning solutions, automating end-to-end pipelines, and scaling data-driven platforms for organizational impact.
+      Designing and deploying robust machine learning solutions, automating end-to-end pipelines, and scaling data-driven platforms.
     </p>
-    <!-- Social/Contact Links -->
     <div class="hero-links">
       <a href="mailto:{{ site.author.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -23,85 +23,79 @@ Modern, beautiful, simple homepage: hero, themed core skills with logos, project
   </div>
 </section>
 
-<!-- Core Skills & Technologies -->
+<!-- Core Skills & Technologies (from resume) -->
 <section class="skills-section">
   <div class="container">
     <h2>Core Skills & Technologies</h2>
-    <div class="skills-list">
-      {% assign skills = 
-        "Kubernetes:logos/kubernetes.svg,
-         Docker:logos/docker.svg,
-         GCP:logos/gcp.svg,
-         CI/CD:logos/cicd.svg,
-         MLflow:logos/mlflow.svg,
-         Airflow:logos/airflow.svg,
-         Spark:logos/spark.svg,
-         FastAPI:logos/fastapi.svg,
-         DataOps:logos/dataops.svg,
-         Cloud Functions:logos/cloudfunctions.svg,
-         REST APIs:logos/api.svg,
-         SQL:logos/sql.svg"
-         | split: "," %}
-      {% for skill in skills %}
-        {% assign parts = skill | split: ":" %}
-        <span class="skill-badge">
-          <img src="{{ site.baseurl }}/assets/images/{{ parts[1] | strip }}" alt="{{ parts[0] | strip }} logo">
-          {{ parts[0] | strip }}
-        </span>
-      {% endfor %}
+    <!-- Programming Languages -->
+    <div class="skill-group">
+      <div class="skill-group-label">Programming Languages</div>
+      <div class="skills-list">
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/python.svg" alt="Python logo">Python</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/sql.svg" alt="SQL logo">SQL</span>
+      </div>
+    </div>
+    <!-- Cloud/Data Platforms -->
+    <div class="skill-group">
+      <div class="skill-group-label">Cloud & Data Platforms</div>
+      <div class="skills-list">
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/gcp.svg" alt="GCP logo">Google Cloud Platform</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/bigquery.svg" alt="BigQuery logo">BigQuery</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/vertexai.svg" alt="VertexAI logo">Vertex AI</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/docker.svg" alt="Docker logo">Docker</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/github.svg" alt="GitHub logo">GitHub</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/cicd.svg" alt="CI/CD logo">CI/CD</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/ws2l.svg" alt="WSL2 logo">WSL2</span>
+      </div>
+    </div>
+    <!-- ML/AI Frameworks -->
+    <div class="skill-group">
+      <div class="skill-group-label">ML/AI Frameworks & Tools</div>
+      <div class="skills-list">
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/mlflow.svg" alt="MLflow logo">MLflow</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/tensorflow.svg" alt="TensorFlow logo">TensorFlow</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/keras.svg" alt="Keras logo">Keras</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/pandas.svg" alt="pandas logo">pandas</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/numpy.svg" alt="NumPy logo">NumPy</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/matplotlib.svg" alt="matplotlib logo">matplotlib</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/seaborn.svg" alt="seaborn logo">seaborn</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/jupyter.svg" alt="Jupyter logo">Jupyter</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/airflow.svg" alt="Airflow logo">Airflow</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/mlops.svg" alt="MLOps logo">MLOps</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/deeplearning.svg" alt="Deep Learning logo">Deep Learning</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/automl.svg" alt="AutoML logo">AutoML</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Featured Projects -->
+<!-- 2x2 Grid of Featured Projects (update with your actual projects) -->
 <section>
   <div class="container">
     <h2>Featured Projects</h2>
-    <div class="projects-grid">
-      {% assign featured = site.projects | slice: 0, 3 %}
+    <div class="featured-projects-grid">
+      {% assign featured = site.projects | slice: 0, 4 %}
       {% for project in featured %}
-      <div class="project-card">
-        <div class="project-banner" style="background-image:url('{{ project.thumbnail }}');">
-          <div class="project-banner-content">
+        <div class="project-card">
+          {% if project.thumbnail %}
+          <img class="project-banner" src="{{ project.thumbnail }}" alt="{{ project.title }} image">
+          {% endif %}
+          <div class="project-title-row">
             <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
           </div>
+          <div class="project-short">
+            {{ project.tldr }}
+          </div>
+          <div class="project-tag-list">
+            {% if project.tech_stack %}
+              {% for tech in project.tech_stack %}
+                <span class="project-tag">{{ tech }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
         </div>
-        <div class="project-summary">
-          {{ project.tldr }}
-        </div>
-        <div class="mini-skills-list">
-          {% if project.tech_stack %}
-            {% for tech in project.tech_stack %}
-              {% assign tech_name = tech %}
-              {% assign logo_path = "" %}
-              {% case tech %}
-                {% when "Kubernetes" %}{% assign logo_path = "logos/kubernetes.svg" %}
-                {% when "Docker" %}{% assign logo_path = "logos/docker.svg" %}
-                {% when "GCP" or "Google Cloud Platform" %}{% assign logo_path = "logos/gcp.svg" %}
-                {% when "CI/CD" %}{% assign logo_path = "logos/cicd.svg" %}
-                {% when "MLflow" %}{% assign logo_path = "logos/mlflow.svg" %}
-                {% when "Airflow" %}{% assign logo_path = "logos/airflow.svg" %}
-                {% when "Spark" or "Apache Spark" %}{% assign logo_path = "logos/spark.svg" %}
-                {% when "FastAPI" %}{% assign logo_path = "logos/fastapi.svg" %}
-                {% when "DataOps" %}{% assign logo_path = "logos/dataops.svg" %}
-                {% when "Cloud Functions" %}{% assign logo_path = "logos/cloudfunctions.svg" %}
-                {% when "REST APIs" %}{% assign logo_path = "logos/api.svg" %}
-                {% when "SQL" %}{% assign logo_path = "logos/sql.svg" %}
-                {% else %}{% assign logo_path = "" %}
-              {% endcase %}
-              <span class="mini-skill-badge">
-                {% if logo_path != "" %}
-                  <img src="{{ site.baseurl }}/assets/images/{{ logo_path }}" alt="{{ tech_name }} logo">
-                {% endif %}
-                {{ tech_name }}
-              </span>
-            {% endfor %}
-          {% endif %}
-        </div>
-      </div>
       {% endfor %}
     </div>
-    <a href="{{ site.baseurl }}/projects/" class="cta-link">View All Projects</a>
   </div>
 </section>
 
@@ -110,8 +104,7 @@ Modern, beautiful, simple homepage: hero, themed core skills with logos, project
   <div class="container">
     <h2>About Me</h2>
     <p>
-      Experienced Production ML Engineer passionate about building scalable and resilient machine learning infrastructures and data products. Bridging DevOps, Data Engineering, and ML for real-world business value.
-      <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
+      Experienced Production ML Engineer passionate about building scalable and resilient machine learning and data platforms. <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
     </p>
   </div>
 </section>

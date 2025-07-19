@@ -1,0 +1,28 @@
+{%- comment -%}
+_settings-modal.html
+Custom settings modal/dropdown.
+- Theme switching with mini previews.
+- Accessible, keyboard navigable.
+- Appears on .settings-btn click.
+{%- endcomment -%}
+
+<div id="settings-modal-bg" class="settings-modal-bg" style="display:none;"></div>
+<aside id="settings-modal" class="settings-modal" tabindex="-1" aria-modal="true" aria-labelledby="settings-title" style="display:none;">
+  <h4 id="settings-title">Settings</h4>
+  <div>
+    <label style="display:block; margin-bottom:0.8em; font-weight:500;">
+      Theme:
+    </label>
+    <div class="theme-choice-list" role="list">
+      {% for i in (1..10) %}
+        <button type="button"
+                class="theme-choice"
+                data-theme="{{ i }}"
+                aria-label="Theme {{ i }}">
+          <!-- theme preview (replace style or SVG for real swatch per theme) -->
+          <span class="theme-choice-inner theme-pre-{{ i }}"></span>
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+</aside>
