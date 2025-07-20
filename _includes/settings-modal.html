@@ -8,17 +8,15 @@ Responsive settings modal with accurate theme swatch for each button.
   <div class="theme-choice-list" style="flex-wrap:wrap;">
     {% assign theme_palette = 
       "1:#181b22,#5e99ff,#23263a
-      2:#191a1f,#67ceb2,#272735
-      3:#191923,#cf5cff,#26263e
-      4:#13171c,#ffaf48,#232e33
-      5:#181f21,#6bb6f7,#263042
-      6:#1c1d1e,#ff7878,#282828
-      7:#f8fafc,#5e99ff,#fff
+      2:#232032,#be71ff,#271b36
+      3:#181f21,#6bb6f7,#263042
+      4:#1c1d1e,#ff7878,#282828
+      5:#191a23,#cf5cff,#26263e
+      6:#f8fafc,#5e99ff,#fff
+      7:#fff9ee,#ffbe42,#ffffff
       8:#f5fff8,#04a96f,#eef9f1
-      9:#fff9ee,#ffbe42,#ffffff
-      10:#f5f3ff,#8c6cff,#fff
-      11:#f2f3f7,#12b5ec,#ffffff
-      12:#fff,#fb7b7b,#f9f0ef"
+      9:#f2f3f7,#12b5ec,#ffffff
+      10:#fff,#fb7b7b,#f9f0ef"
       | split: " " %}
     {% for tp in theme_palette %}
       {% assign t = tp | split: ":" %}
@@ -38,4 +36,5 @@ Responsive settings modal with accurate theme swatch for each button.
     {% endfor %}
   </div>
 </aside>
+
 
