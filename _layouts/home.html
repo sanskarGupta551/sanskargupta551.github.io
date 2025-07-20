@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<!-- Hero Section (centered) -->
+<!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <h1>{{ site.author.name }}</h1>
     <h2>MLOps • Full-stack ML • Big Data</h2>
-    <p style="max-width:600px;">
+    <p>
       Robust ML solutions, reliable automation, and scalable platforms built for production.
     </p>
     <div class="hero-links">
@@ -57,7 +57,7 @@ layout: default
   </div>
 </section>
 
-<!-- Featured Projects (centered, 2x2 grid, no background box) -->
+<!-- Featured Projects (centered grid, tags separated by line, no headings/boxes) -->
 <section class="featured-projects-container">
   <h2 class="projects-title">Featured Projects</h2>
   <div class="featured-projects-grid">
@@ -71,7 +71,7 @@ layout: default
         <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
       </div>
       <div class="project-short">{{ project.tldr }}</div>
-      <div class="project-badge-list" style="margin-top:0.3em;">
+      <div class="project-badge-list">
         {% for tag in project.skills_used %}
           <span class="project-badge">{{ tag }}</span>
         {% endfor %}
@@ -87,9 +87,9 @@ layout: default
   </div>
 </section>
 
-<!-- About Me Preview (centered) -->
+<!-- About Me Preview -->
 <section>
-  <div class="container" style="display: flex; flex-direction:column; align-items:center;">
+  <div class="container" style="display: flex; flex-direction:column; align-items: center;">
     <h2>About Me</h2>
     <p style="max-width:600px;">
       Production ML Engineer building scalable platforms and pipelines.
