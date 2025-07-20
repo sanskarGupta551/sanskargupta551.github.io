@@ -1,14 +1,10 @@
 ---
 layout: default
 ---
-<!--
-Modern homepage: beautiful skills w/ logos, attractive projects grid, clear layout.
--->
-
 <section class="hero">
   <div class="container">
     <h1>{{ site.author.name }}</h1>
-    <h2>Production ML Engineer | ML • MLOps • Full-stack • Big Data</h2>
+    <h2>MLOps • Full-stack ML • Big Data</h2>
     <p>
       Robust ML solutions, reliable automation, and scalable platforms built for production.
     </p>
@@ -19,8 +15,6 @@ Modern homepage: beautiful skills w/ logos, attractive projects grid, clear layo
     </div>
   </div>
 </section>
-
-<!-- Core Skills/Technologies (update SVG logo paths to your files) -->
 <section class="skills-section">
   <div class="container">
     <h2>Core Skills & Technologies</h2>
@@ -45,7 +39,7 @@ Modern homepage: beautiful skills w/ logos, attractive projects grid, clear layo
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-label">Cloud, MLOps, Ops:</div>
+      <div class="skill-group-label">Cloud/MLOps/Infra:</div>
       <div class="skills-list">
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/gcp.svg" alt="GCP logo">GCP</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/vertexai.svg" alt="Vertex AI logo">Vertex AI</span>
@@ -60,39 +54,39 @@ Modern homepage: beautiful skills w/ logos, attractive projects grid, clear layo
     </div>
   </div>
 </section>
-
-<!-- Featured Projects: 2x2 grid -->
-<section>
-  <div class="container">
-    <h2 class="projects-title">Featured Projects</h2>
-    <div class="featured-projects-grid">
-      {% assign featured = site.projects | slice: 0, 4 %}
-      {% for project in featured %}
-        <div class="project-card">
-          {% if project.thumbnail %}
-            <img class="project-banner" src="{{ project.thumbnail }}" alt="{{ project.title }} banner">
-          {% endif %}
-          <div class="project-title-row">
-            <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
-          </div>
-          <div class="project-short">{{ project.tldr }}</div>
-          <div class="project-tag-list">
-            {% if project.tech_stack %}
-              {% for tech in project.tech_stack %}
-                <span class="project-tag">{{ tech }}</span>
-              {% endfor %}
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
+<section class="featured-projects-container">
+  <h2 class="projects-title">Featured Projects</h2>
+  <div class="featured-projects-grid">
+    {% assign featured = site.projects | slice: 0, 4 %}
+    {% for project in featured %}
+    <div class="project-card">
+      {% if project.thumbnail %}
+        <img class="project-banner" src="{{ project.thumbnail }}" alt="{{ project.title }} banner">
+      {% endif %}
+      <div class="project-title-row">
+        <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+      </div>
+      <div class="project-short">{{ project.tldr }}</div>
+      <hr class="project-divider"/>
+      <div class="project-section-label">Skills Used</div>
+      <div class="project-badge-list">
+        {% for skill in project.skills_used %}
+          <span class="project-badge">{{ skill }}</span>
+        {% endfor %}
+      </div>
+      <div class="project-section-label">Tech Used</div>
+      <div class="project-badge-list">
+        {% for tech in project.tech_used %}
+          <span class="project-badge">{{ tech }}</span>
+        {% endfor %}
+      </div>
     </div>
+    {% endfor %}
   </div>
 </section>
-
-<!-- About Me preview -->
 <section>
   <div class="container">
     <h2>About Me</h2>
-    <p>Experienced Production ML Engineer building scalable, resilient platforms. <a href="{{ site.baseurl }}/about/">Read More &rarr;</a></p>
+    <p>Production ML Engineer building scalable platforms and pipelines. <a href="{{ site.baseurl }}/about/">Read More &rarr;</a></p>
   </div>
 </section>

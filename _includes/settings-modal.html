@@ -5,17 +5,37 @@ Responsive settings modal with accurate theme swatch for each button.
 <aside id="settings-modal" class="settings-modal" tabindex="-1" aria-modal="true" aria-labelledby="settings-title">
   <h4 id="settings-title">Settings</h4>
   <label style="display:block; margin-bottom:0.7em; font-weight:600;">Theme:</label>
-  <div class="theme-choice-list" role="list">
-    <!-- Each button shows bg/accent/card exactly -->
-    <button class="theme-choice" data-theme="1" aria-label="Theme 1"><span><span class="theme-palette t-bg" style="background:#181b22"></span><span class="theme-palette t-accent" style="background:#5e99ff"></span><span class="theme-palette t-card" style="background:#23263a"></span></span></button>
-    <button class="theme-choice" data-theme="2" aria-label="Theme 2"><span><span class="theme-palette t-bg" style="background:#14171a"></span><span class="theme-palette t-accent" style="background:#ff7866"></span><span class="theme-palette t-card" style="background:#22252d"></span></span></button>
-    <button class="theme-choice" data-theme="3" aria-label="Theme 3"><span><span class="theme-palette t-bg" style="background:#191a15"></span><span class="theme-palette t-accent" style="background:#45e392"></span><span class="theme-palette t-card" style="background:#2b2f20"></span></span></button>
-    <button class="theme-choice" data-theme="4" aria-label="Theme 4"><span><span class="theme-palette t-bg" style="background:#232032"></span><span class="theme-palette t-accent" style="background:#be71ff"></span><span class="theme-palette t-card" style="background:#271b36"></span></span></button>
-    <button class="theme-choice" data-theme="5" aria-label="Theme 5"><span><span class="theme-palette t-bg" style="background:#222e3a"></span><span class="theme-palette t-accent" style="background:#ffbe42"></span><span class="theme-palette t-card" style="background:#294257"></span></span></button>
-    <button class="theme-choice" data-theme="6" aria-label="Theme 6"><span><span class="theme-palette t-bg" style="background:#182841"></span><span class="theme-palette t-accent" style="background:#00e2ff"></span><span class="theme-palette t-card" style="background:#21406a"></span></span></button>
-    <button class="theme-choice" data-theme="7" aria-label="Theme 7"><span><span class="theme-palette t-bg" style="background:#181b23"></span><span class="theme-palette t-accent" style="background:#5a7fff"></span><span class="theme-palette t-card" style="background:#22254d"></span></span></button>
-    <button class="theme-choice" data-theme="8" aria-label="Theme 8"><span><span class="theme-palette t-bg" style="background:#142020"></span><span class="theme-palette t-accent" style="background:#ffd074"></span><span class="theme-palette t-card" style="background:#19383a"></span></span></button>
-    <button class="theme-choice" data-theme="9" aria-label="Theme 9"><span><span class="theme-palette t-bg" style="background:#1c191d"></span><span class="theme-palette t-accent" style="background:#ef79d3"></span><span class="theme-palette t-card" style="background:#32253c"></span></span></button>
-    <button class="theme-choice" data-theme="10" aria-label="Theme 10"><span><span class="theme-palette t-bg" style="background:#1f2424"></span><span class="theme-palette t-accent" style="background:#6effb8"></span><span class="theme-palette t-card" style="background:#23373e"></span></span></button>
+  <div class="theme-choice-list" style="flex-wrap:wrap;">
+    {% assign theme_palette = 
+      "1:#181b22,#5e99ff,#23263a
+      2:#191a1f,#67ceb2,#272735
+      3:#191923,#cf5cff,#26263e
+      4:#13171c,#ffaf48,#232e33
+      5:#181f21,#6bb6f7,#263042
+      6:#1c1d1e,#ff7878,#282828
+      7:#f8fafc,#5e99ff,#fff
+      8:#f5fff8,#04a96f,#eef9f1
+      9:#fff9ee,#ffbe42,#ffffff
+      10:#f5f3ff,#8c6cff,#fff
+      11:#f2f3f7,#12b5ec,#ffffff
+      12:#fff,#fb7b7b,#f9f0ef"
+      | split: " " %}
+    {% for tp in theme_palette %}
+      {% assign t = tp | split: ":" %}
+      {% assign idx = t[0] %}
+      {% assign colors = t[1] | split: "," %}
+      <button type="button" 
+              class="theme-choice" 
+              data-theme="{{ idx }}" 
+              aria-label="Theme {{ idx }}"
+              style="margin-bottom: 0.3em;">
+        <span style="display:flex; flex-direction:column; align-items:center;">
+          <span class="theme-palette t-bg" style="background:{{ colors[0] }};"></span>
+          <span class="theme-palette t-accent" style="background:{{ colors[1] }};"></span>
+          <span class="theme-palette t-card" style="background:{{ colors[2] }};"></span>
+        </span>
+      </button>
+    {% endfor %}
   </div>
 </aside>
+

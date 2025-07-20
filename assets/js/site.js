@@ -1,8 +1,8 @@
 // assets/js/site.js
 // Reliable theme switcher + modal logic with accurate highlighting and defaults
-
+// assets/js/site.js
 document.addEventListener('DOMContentLoaded', function() {
-  const THEME_COUNT = 10, THEME_PREFIX = 'theme-', DEFAULT_THEME = 1, LS_KEY = 'sg-portfolio-theme';
+  const THEME_COUNT = 12, THEME_PREFIX = 'theme-', DEFAULT_THEME = 1, LS_KEY = 'sg-portfolio-theme';
 
   function setTheme(idx) {
     document.body.className = THEME_PREFIX + idx;
