@@ -1,65 +1,218 @@
 /* =========== THEMES (unchanged) =========== */
 /* (same as before, see previous message for theme variables) */
 
-/* =========== CONTAINERS & CENTERING =========== */
-.container {
-  max-width: 1200px;
-  width: 95%;
-  margin: 0 auto;
-  padding: 2.4rem 0 1.3rem;
+/* ----------- BASE/UTILITY ----------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  box-sizing: border-box;
+  background: var(--bg, #181b22);
+  color: var(--text, #eef2fa);
 }
-
-/* =========== REMOVE CARDS/BG FROM SECTIONS & CENTER =========== */
-.skills-section, .featured-projects-container {
-  background: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  margin: 3rem 0 2.1rem 0; /* vertical margin only */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#main-content {
+  flex: 1 0 auto;
   width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.skills-section h2,
-.featured-projects-container h2,
-.projects-title {
-  text-align: center;
+/* ----------- HEADER ----------- */
+.navbar {
+  background: var(--nav, #212336);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  min-height: 64px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 1.5rem;
+}
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent, #5e99ff);
+}
+.navbar-brand {
+  font-size: 1.04rem;
+  font-weight: bold;
+  color: var(--accent, #5e99ff);
+  margin-left: 0.3rem;
+}
+
+/* ----------- NAV ----------- */
+.nav-actions {
+  display: flex;
+  align-items: center;
   margin-left: auto;
-  margin-right: auto;
 }
+.navbar-links {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0 1rem 0 0;
+  padding: 0;
+}
+.navbar-links a {
+  color: var(--text, #eef2fa);
+  padding: 0.2rem 0.75rem;
+  font-size: 1.05rem;
+  border-radius: 7px;
+  transition: background 0.13s, color 0.13s;
+  text-decoration: none;
+}
+.navbar-links a.active, .navbar-links a:hover { background: var(--accent, #5e99ff); color: #fff;}
+.settings-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent, #5e99ff);
+  font-size: 1.54rem;
+  padding: 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+.settings-btn:focus, .settings-btn:hover { background: var(--accent, #5e99ff); color: #fff; }
 
-.skill-group {
-  margin-bottom: 2.2rem;
+/* ----------- HERO (centered block) ----------- */
+.hero .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 2.5rem;
 }
+.hero h1, .hero h2, .hero p {
+  text-align: center;
+}
+.hero h1 { margin-bottom: 0.3em; }
+.hero h2 { margin-bottom: 1rem; font-weight: 500; font-size: 1.10rem; color: var(--text, #eef2fa);}
+.hero p { max-width: 600px; }
+.hero-links { margin-top: 1rem; }
+.hero-links a { color: var(--text, #eef2fa); font-size: 1.25rem; margin: 0 0.43rem; }
+.hero-links a:hover { color: var(--accent, #5e99ff); }
+
+@media (max-width: 650px) {
+  .navbar { flex-direction: column; }
+  .header-left { padding-left: 0.3rem; margin-bottom: 0.4rem; }
+  .navbar-links { margin: 0; }
+}
+
+/* ----------- SKILLS SECTION ----------- */
+.skills-section {
+  margin-top: 2.8rem;
+  text-align: center;
+}
+.skills-section h2 { margin-bottom: 1.2rem; }
+.skill-group-label { font-size: 1.09rem; font-weight: 700; color: var(--accent, #5e99ff); margin-bottom: 0.7em;}
 .skills-list {
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4em 1.7em;
+  justify-content: center;
+  gap: 1.1em 1.5em;
+  margin-bottom: 1.5rem;
+}
+.skill-badge {
+  display: flex;
+  align-items: center;
+  background: var(--badge, #32395c);
+  color: var(--badge-txt, #e6e6e6);
+  border-radius: 15px;
+  padding: 0.69em 1.4em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 0.5px 3px #0001;
+  margin-bottom: 0.4em;
+}
+.skill-badge img {
+  width: 1.35em;
+  height: 1.35em;
+  object-fit: contain;
+  margin-right: 0.43em;
+  border-radius: 7px;
 }
 
-/* Center grid as well */
+/* ----------- PROJECTS ----------- */
+.featured-projects-container {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.featured-projects-container h2 { margin-bottom: 2rem; }
 .featured-projects-grid {
-  justify-content: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.4rem;
-  margin-bottom: 0.2rem;
-  width: 100%;
+  gap: 2rem;
+  justify-content: center;
 }
-@media (max-width: 900px) { .featured-projects-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .featured-projects-grid { grid-template-columns: 1fr; }
+}
+.project-card {
+  background: var(--bg, #181b22);
+  border-radius: 16px;
+  box-shadow: 0 2px 18px #0004;
+  overflow: hidden;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+.project-banner {
+  width: 100%;
+  height: 220px; /* taller than before */
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+  background: #eee;
+}
+.project-title-row {
+  margin: 1.02em 1.02em 0.17em 1.05em;
+}
+.project-title-row h3 { margin: 0; font-size: 1.19rem; }
+.project-title-row a { color: var(--accent, #5e99ff); }
+.project-title-row a:hover { text-decoration: underline; }
+.project-short {
+  padding: 0.5em 1.1em 0.4em 1.1em;
+  font-size: 1.01rem;
+  color: var(--text, #eef2fa);
+}
+.project-badge-list {
+  margin: 0.24em 1.1em 0.50em 1.1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35em 0.85em;
+}
+.project-badge {
+  background: var(--badge, #32395c);
+  color: var(--badge-txt, #e6e6e6);
+  padding: 0.22em 1.09em;
+  border-radius: 13px;
+  font-size: 0.99rem;
+  font-weight: 500;
+}
+.project-divider {
+  border: none;
+  border-top: 1.7px dashed var(--badge, #32395c);
+  margin: 0.4em 6% 0.7em 6%;
+}
+@media (max-width: 600px) {
+  .featured-projects-grid { grid-template-columns: 1fr; }
+}
 
-/* =========== SLIM FOOTER =========== */
+/* ----------- SLIM STICKY FOOTER ----------- */
 .site-footer {
-  background: var(--nav);
+  background: var(--nav, #212336);
   color: #eee;
-  padding: 0.4rem 0;
+  padding: 0.35rem 0;  /* very slim vertical padding */
   text-align: center;
   font-size: 0.97rem;
   width: 100vw;
@@ -69,10 +222,4 @@
   z-index: 100;
   line-height: 1.4;
 }
-.site-footer a {
-  color: var(--accent);
-  margin: 0 0.5rem;
-  font-size: 1.13rem;
-}
-
-/* The rest of your button/badge, navbar, project-card, etc. styles remain as before. */
+.site-footer a { color: var(--accent, #5e99ff); margin: 0 0.5rem; font-size: 1.13rem; }

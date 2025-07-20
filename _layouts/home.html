@@ -4,13 +4,13 @@ layout: default
 
 <!-- Hero Section (centered) -->
 <section class="hero">
-  <div class="container" style="display:flex; flex-direction:column; align-items:center;">
-    <h1 style="text-align:center;">{{ site.author.name }}</h1>
-    <h2 style="text-align:center;">MLOps • Full-stack ML • Big Data</h2>
-    <p style="max-width:600px;text-align:center;margin-bottom:0;">
+  <div class="container">
+    <h1>{{ site.author.name }}</h1>
+    <h2>MLOps • Full-stack ML • Big Data</h2>
+    <p style="max-width:600px;">
       Robust ML solutions, reliable automation, and scalable platforms built for production.
     </p>
-    <div class="hero-links" style="margin-top:0.95rem;">
+    <div class="hero-links">
       <a href="mailto:{{ site.author.email }}"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github"></i></a>
       <a href="{{ site.author.linkedin }}"><i class="fab fa-linkedin"></i></a>
@@ -18,7 +18,7 @@ layout: default
   </div>
 </section>
 
-<!-- Core Skills & Technologies (centered, no bg) -->
+<!-- Core Skills & Technologies (centered, no background) -->
 <section class="skills-section">
   <h2>Core Skills & Technologies</h2>
   <div class="skill-group">
@@ -57,7 +57,7 @@ layout: default
   </div>
 </section>
 
-<!-- Featured Projects (centered, no bg) -->
+<!-- Featured Projects (centered, 2x2 grid, no background box) -->
 <section class="featured-projects-container">
   <h2 class="projects-title">Featured Projects</h2>
   <div class="featured-projects-grid">
@@ -87,11 +87,11 @@ layout: default
   </div>
 </section>
 
-<!-- About Me Preview Section (centered, no bg) -->
+<!-- About Me Preview (centered) -->
 <section>
-  <div class="container" style="display:flex; flex-direction:column; align-items:center;">
-    <h2 style="text-align:center;">About Me</h2>
-    <p style="max-width:600px;text-align:center;">
+  <div class="container" style="display: flex; flex-direction:column; align-items:center;">
+    <h2>About Me</h2>
+    <p style="max-width:600px;">
       Production ML Engineer building scalable platforms and pipelines.
       <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
     </p>
