@@ -1,40 +1,80 @@
-<!--
-Responsive settings modal with accurate theme swatch for each button.
--->
-<div id="settings-modal-bg" class="settings-modal-bg"></div>
-<aside id="settings-modal" class="settings-modal" tabindex="-1" aria-modal="true" aria-labelledby="settings-title">
+<!-- Settings modal: hidden by default, floats above content. Swatches match theme palette. -->
+<div id="settings-modal-bg" class="settings-modal-bg" style="display:none;"></div>
+<aside id="settings-modal" class="settings-modal" tabindex="-1" aria-modal="true" aria-labelledby="settings-title" style="display:none;">
   <h4 id="settings-title">Settings</h4>
   <label style="display:block; margin-bottom:0.7em; font-weight:600;">Theme:</label>
   <div class="theme-choice-list" style="flex-wrap:wrap;">
-    {% assign theme_palette = 
-      "1:#181b22,#5e99ff,#23263a
-      2:#232032,#be71ff,#271b36
-      3:#181f21,#6bb6f7,#263042
-      4:#1c1d1e,#ff7878,#282828
-      5:#191a23,#cf5cff,#26263e
-      6:#f8fafc,#5e99ff,#fff
-      7:#fff9ee,#ffbe42,#ffffff
-      8:#f5fff8,#04a96f,#eef9f1
-      9:#f2f3f7,#12b5ec,#ffffff
-      10:#fff,#fb7b7b,#f9f0ef"
-      | split: " " %}
-    {% for tp in theme_palette %}
-      {% assign t = tp | split: ":" %}
-      {% assign idx = t[0] %}
-      {% assign colors = t[1] | split: "," %}
-      <button type="button" 
-              class="theme-choice" 
-              data-theme="{{ idx }}" 
-              aria-label="Theme {{ idx }}"
-              style="margin-bottom: 0.3em;">
-        <span style="display:flex; flex-direction:column; align-items:center;">
-          <span class="theme-palette t-bg" style="background:{{ colors[0] }};"></span>
-          <span class="theme-palette t-accent" style="background:{{ colors[1] }};"></span>
-          <span class="theme-palette t-card" style="background:{{ colors[2] }};"></span>
-        </span>
-      </button>
-    {% endfor %}
+    <!-- Each swatch matches the actual palette applied -->
+    <button class="theme-choice" data-theme="1" aria-label="Dark Blue (Default)">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#181b22;"></span>
+        <span class="theme-palette t-accent" style="background:#5e99ff;"></span>
+        <span class="theme-palette t-card" style="background:#23263a;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="2" aria-label="Purple Dark">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#232032;"></span>
+        <span class="theme-palette t-accent" style="background:#be71ff;"></span>
+        <span class="theme-palette t-card" style="background:#271b36;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="3" aria-label="Steel Blue">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#181f21;"></span>
+        <span class="theme-palette t-accent" style="background:#6bb6f7;"></span>
+        <span class="theme-palette t-card" style="background:#263042;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="4" aria-label="Charcoal Red">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#1c1d1e;"></span>
+        <span class="theme-palette t-accent" style="background:#ff7878;"></span>
+        <span class="theme-palette t-card" style="background:#282828;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="5" aria-label="Deep Violet">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#191a23;"></span>
+        <span class="theme-palette t-accent" style="background:#cf5cff;"></span>
+        <span class="theme-palette t-card" style="background:#26263e;"></span>
+      </span>
+    </button>
+    <!-- LIGHT THEMES -->
+    <button class="theme-choice" data-theme="6" aria-label="Light Blue">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#f8fafc;"></span>
+        <span class="theme-palette t-accent" style="background:#5e99ff;"></span>
+        <span class="theme-palette t-card" style="background:#fff;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="7" aria-label="Light Yellow">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#fff9ee;"></span>
+        <span class="theme-palette t-accent" style="background:#ffbe42;"></span>
+        <span class="theme-palette t-card" style="background:#ffffff;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="8" aria-label="Green Light">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#f5fff8;"></span>
+        <span class="theme-palette t-accent" style="background:#04a96f;"></span>
+        <span class="theme-palette t-card" style="background:#eef9f1;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="9" aria-label="Aqua Light">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#f2f3f7;"></span>
+        <span class="theme-palette t-accent" style="background:#12b5ec;"></span>
+        <span class="theme-palette t-card" style="background:#ffffff;"></span>
+      </span>
+    </button>
+    <button class="theme-choice" data-theme="10" aria-label="Rose White">
+      <span style="display:flex; flex-direction:column;">
+        <span class="theme-palette t-bg" style="background:#fff;"></span>
+        <span class="theme-palette t-accent" style="background:#fb7b7b;"></span>
+        <span class="theme-palette t-card" style="background:#f9f0ef;"></span>
+      </span>
+    </button>
   </div>
 </aside>
-
-

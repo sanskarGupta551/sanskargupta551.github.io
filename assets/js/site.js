@@ -1,6 +1,6 @@
 // assets/js/site.js
-// Theme switching and settings modal behavior for portfolio
 
+// Theme switching with modal, accurate theme preview, default theme is dark
 document.addEventListener('DOMContentLoaded', function() {
   const THEME_COUNT = 10, THEME_PREFIX = 'theme-', DEFAULT_THEME = 1, LS_KEY = 'sg-portfolio-theme';
 
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     );
   }
 
-  // Modal open/close logic
   const openBtn = document.getElementById('open-settings');
   const modalBg = document.getElementById('settings-modal-bg');
   const modal = document.getElementById('settings-modal');
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (modalBg) modalBg.addEventListener('click', hideModal);
   document.addEventListener('keydown', function(ev) { if (modal.style.display === "block" && ev.key === "Escape") hideModal(); });
 
-  // Theme picker logic
   document.body.addEventListener('click', function(e) {
     if (e.target.classList.contains('theme-choice') || e.target.closest('.theme-choice')) {
       let btn = e.target.classList.contains('theme-choice') ? e.target : e.target.closest('.theme-choice');
@@ -34,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Apply and highlight startup theme
   let selectedTheme = parseInt(localStorage.getItem(LS_KEY), 10);
   if (Number.isNaN(selectedTheme) || selectedTheme < 1 || selectedTheme > THEME_COUNT) selectedTheme = DEFAULT_THEME;
   setTheme(selectedTheme);
 });
+

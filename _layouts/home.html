@@ -1,20 +1,24 @@
 ---
 layout: default
 ---
+
+<!-- Hero Section (centered) -->
 <section class="hero">
-  <div class="container">
-    <h1>{{ site.author.name }}</h1>
-    <h2>MLOps • Full-stack ML • Big Data</h2>
-    <p>
+  <div class="container" style="display:flex; flex-direction:column; align-items:center;">
+    <h1 style="text-align:center;">{{ site.author.name }}</h1>
+    <h2 style="text-align:center;">MLOps • Full-stack ML • Big Data</h2>
+    <p style="max-width:600px;text-align:center;margin-bottom:0;">
       Robust ML solutions, reliable automation, and scalable platforms built for production.
     </p>
-    <div class="hero-links">
+    <div class="hero-links" style="margin-top:0.95rem;">
       <a href="mailto:{{ site.author.email }}"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github"></i></a>
       <a href="{{ site.author.linkedin }}"><i class="fab fa-linkedin"></i></a>
     </div>
   </div>
 </section>
+
+<!-- Core Skills & Technologies (add your own grouping and badges as desired) -->
 <section class="skills-section">
   <div class="container">
     <h2>Core Skills & Technologies</h2>
@@ -32,7 +36,7 @@ layout: default
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/keras.svg" alt="Keras logo">Keras</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/pandas.svg" alt="Pandas logo">pandas</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/numpy.svg" alt="NumPy logo">NumPy</span>
-        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/matplotlib.svg" alt="Matplotlib logo">matplotlib</span>
+        <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/matplotlib.svg" alt="matplotlib logo">matplotlib</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/seaborn.svg" alt="seaborn logo">seaborn</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/jupyter.svg" alt="Jupyter logo">Jupyter</span>
         <span class="skill-badge"><img src="{{ site.baseurl }}/assets/images/skills/airflow.svg" alt="Airflow logo">Airflow</span>
@@ -54,6 +58,8 @@ layout: default
     </div>
   </div>
 </section>
+
+<!-- Featured Projects Section -->
 <section class="featured-projects-container">
   <h2 class="projects-title">Featured Projects</h2>
   <div class="featured-projects-grid">
@@ -67,26 +73,29 @@ layout: default
         <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
       </div>
       <div class="project-short">{{ project.tldr }}</div>
-      <div class="project-section-label">Skills Used</div>
-      <div class="project-badge-list">
-        {% for skill in project.skills_used %}
-          <span class="project-badge">{{ skill }}</span>
+      <div class="project-badge-list" style="margin-top:0.3em;">
+        {% for tag in project.skills_used %}
+          <span class="project-badge">{{ tag }}</span>
         {% endfor %}
       </div>
       <hr class="project-divider"/>
-      <div class="project-section-label">Tech Used</div>
       <div class="project-badge-list">
-        {% for tech in project.tech_used %}
-          <span class="project-badge">{{ tech }}</span>
+        {% for tag in project.tech_used %}
+          <span class="project-badge">{{ tag }}</span>
         {% endfor %}
       </div>
     </div>
     {% endfor %}
   </div>
 </section>
+
+<!-- About Me Preview Section -->
 <section>
   <div class="container">
     <h2>About Me</h2>
-    <p>Production ML Engineer building scalable platforms and pipelines. <a href="{{ site.baseurl }}/about/">Read More &rarr;</a></p>
+    <p>
+      Production ML Engineer building scalable platforms and pipelines.
+      <a href="{{ site.baseurl }}/about/">Read More &rarr;</a>
+    </p>
   </div>
 </section>
